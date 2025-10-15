@@ -11,6 +11,12 @@ var rootCmd = &cobra.Command{
 	Version: idomatic.Version,
 }
 
+func init() {
+	rootCmd.AddCommand(serverCmd)
+	rootCmd.AddCommand(workerCmd)
+	rootCmd.AddCommand(migrateCmd)
+}
+
 func Execute() error {
 	return rootCmd.Execute()
 }
